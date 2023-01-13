@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<alloy>
+
+<view nodetheme="Martha" hidePrivate="no">
+
+<projection> <type name="ordering/Ord"/> </projection>
+
+<defaultnode/>
+
+<defaultedge/>
+
+<node>
+   <type name="AMANAutonomousActivity"/>
+   <type name="BlockTimeSlot"/>
+   <type name="ChangeZoom"/>
+   <type name="ClickHoldButton"/>
+   <type name="ComputeLS"/>
+   <type name="DisplayLS"/>
+   <type name="DisplayLSAfterZoom"/>
+   <type name="DisplaySlotLocked"/>
+   <type name="Int"/>
+   <type name="ManageLandingSequenceLS"/>
+   <type name="ManageLS"/>
+   <type name="ManageSector"/>
+   <type name="ModifyLS"/>
+   <type name="ModifyZoom"/>
+   <type name="MonitorLS"/>
+   <type name="PutAircraftOnHold"/>
+   <type name="ReceiveRadarInformation"/>
+   <type name="SelectAircraftLabel"/>
+   <type name="SelectSlot"/>
+   <type name="StopManageLS"/>
+   <type name="String"/>
+   <type name="univ"/>
+   <type name="HAMSTERS/Atomic"/>
+   <type name="HAMSTERS/Composite"/>
+   <type name="ordering/Ord"/>
+   <type name="seq/Int"/>
+</node>
+
+<node color="White">
+   <type name="HAMSTERS/Task"/>
+</node>
+
+<node hideunconnected="yes" label="True">
+   <type name="HAMSTERS/True"/>
+</node>
+
+<node label="Choice">
+   <type name="HAMSTERS/Choice"/>
+</node>
+
+<node label="Concurrent">
+   <type name="HAMSTERS/Concurrent"/>
+</node>
+
+<node label="Disable">
+   <type name="HAMSTERS/Disable"/>
+</node>
+
+<node label="Erroneous">
+   <set name="HAMSTERS/Erroneous" type="HAMSTERS/Atomic"/>
+</node>
+
+<node label="H">
+   <set name="$showHolding" type="Plane"/>
+</node>
+
+<node label="Iterative">
+   <set name="HAMSTERS/Iterative" type="HAMSTERS/Task"/>
+</node>
+
+<node label="Optional">
+   <set name="HAMSTERS/Optional" type="HAMSTERS/Task"/>
+</node>
+
+<node label="Sequence">
+   <type name="HAMSTERS/Sequence"/>
+</node>
+
+<node label="Suspend">
+   <type name="HAMSTERS/Suspend"/>
+</node>
+
+<node label="X">
+   <set name="this/selected" type="Slot"/>
+</node>
+
+<node numberatoms="no" shape="Circle" color="White" label="">
+   <type name="Slot"/>
+</node>
+
+<node shape="Hexagon" color="White">
+   <type name="Plane"/>
+</node>
+
+<node showlabel="no">
+   <set name="this/holding" type="Slot"/>
+   <set name="First" type="Slot"/>
+   <set name="HAMSTERS/executed" type="HAMSTERS/Task"/>
+   <set name="HAMSTERS/Root" type="HAMSTERS/Task"/>
+</node>
+
+<node showlabel="no" label="enabled">
+   <set name="HAMSTERS/enabled" type="HAMSTERS/Task"/>
+</node>
+
+<node showlabel="no" label="finished">
+   <set name="HAMSTERS/finished" type="HAMSTERS/Task"/>
+</node>
+
+<node showlabel="no" shape="Dbl Circle" label="blocked">
+   <set name="this/blocked" type="Slot"/>
+</node>
+
+<node showlabel="no" shape="Trapezoid" label="Input">
+   <set name="HAMSTERS/Input" type="HAMSTERS/Task"/>
+</node>
+
+<node showlabel="no" style="inherit" color="Gray">
+   <set name="this/displayed" type="Slot"/>
+</node>
+
+<node showlabel="no" style="inherit" color="Green" label="running">
+   <set name="HAMSTERS/running" type="HAMSTERS/Task"/>
+</node>
+
+<node showlabel="no" style="inherit" color="Red" label="done">
+   <set name="HAMSTERS/done" type="HAMSTERS/Task"/>
+</node>
+
+<node showlabel="no" style="inherit" color="Red" label="holding">
+   <set name="this/holding" type="Plane"/>
+</node>
+
+<node showlabel="no" style="inherit" color="Yellow">
+   <set name="this/radar" type="Plane"/>
+</node>
+
+<node showlabel="no" style="inherit" color="Yellow" label="Enabled">
+   <set name="HAMSTERS/Enabled" type="HAMSTERS/Atomic"/>
+</node>
+
+<node showlabel="no" style="inherit" shape="Diamond">
+   <set name="this/zoom" type="Slot"/>
+</node>
+
+<node style="inherit" label="X">
+   <set name="this/selected" type="Plane"/>
+</node>
+
+<edge layout="yes" label="">
+   <relation name="Next"> <type name="Slot"/> <type name="Slot"/> </relation>
+</edge>
+
+<edge style="inherit">
+   <relation name="log"> <type name="HAMSTERS/Sequence"/> <type name="seq/Int"/> <type name="HAMSTERS/Task"/> </relation>
+   <relation name="slot"> <type name="Plane"/> <type name="Slot"/> </relation>
+</edge>
+
+<edge visible="no" attribute="no">
+   <relation name="guard"> <type name="HAMSTERS/Atomic"/> <type name="HAMSTERS/True"/> </relation>
+</edge>
+
+</view>
+
+</alloy>
